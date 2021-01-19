@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Venue: {{ venue['venuename'] }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Thank you.</h2>
+  <p>Thank you for checking into {{ venue['orgname'] }}, {{ venue['venueaddress'] }}</p>
+{% endblock %}

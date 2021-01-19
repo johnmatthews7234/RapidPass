@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Configure{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>User</h2>
+  <a href="{{ url_for('config.edituser') }}">Edit User</a>
+  <ul>
+    <li>Username: {{ orgdata['username'] }}</li>
+    <li>Real Name: {{ orgdata['realname'] }}</li>
+    <li>Password: ********</li>
+  </ul>
+  <hr>
+  <h2>Organisation</h2>
+  <a href="{{ url_for('config.editorg') }}">Edit Organisation</a>
+  <ul>
+    <li>Organisation Name: {{ orgdata['orgname'] }}</li>
+    <li>Billing Details: {{ orgdata['billing'] }}</li>
+  </ul>
+  <hr>
+  <h2>Venues</h2>
+  <a href="{{ url_for('config.addvenue', orgid=orgdata['id']) }}">Add Venue</a>
+  <ul>
+  {% for venue in venuedata %}
+    <li>Venue: <a href="{{ url_for('config.viewvenue', venueid=venue['id']) }}">{{ venue['venuename'] }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

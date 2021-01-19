@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Edit Organisation{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="POST">
+      <h2>Organisation</h2>
+      <p>Organisation Name: {{ orgdata['orgname'] }}</p>
+      <label for="orgname">Organisation Name</label>
+      <input name="orgname" id="orgname" value="{{ orgdata['orgname'] }}" required>
+      <label for="billing">Billing Information</label>
+      <input name="billing" id="billingaddress" value="{{ orgdata['billing'] }}" required>
+      <input type="submit" value="Change">
+  </form>
+{% endblock %}

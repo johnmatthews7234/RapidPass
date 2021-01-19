@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Venue: {{ venue['venuename'] }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Venue</h2>
+  <a href="{{ url_for('config.editvenue', venueid=venue['id']) }}">Edit Venue</a>
+  <a href="{{ url_for('config.deletevenue', venueid=venue['id']) }}">Delete Venue</a>
+  <ul>
+    <li>Venue Name: {{ venue['venuename'] }}</li>
+    <li>Venue Address: {{ venue['venueaddress'] }}</li>
+  </ul>
+  <img src="{{ qrcode(visitsurl) }}">
+  <h2>Visits</h2>
+  <a href="{{ url_for('config.downloadcsv', venueid=venue['id']) }}">Download</a>
+  <table>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Phone Number</th>
+      <th>Date Visited</th>
+    </tr>
+    {% for visit in visits %}
+    <tr>
+      <td>{{ visit['firstname'] }}</td>
+      <td>{{ visit['lastname'] }}</td>
+      <td>{{ visit['phone'] }}</td>
+      <td>{{ visit['visited'] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
+

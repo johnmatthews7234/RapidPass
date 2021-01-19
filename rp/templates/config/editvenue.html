@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Edit Venue{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="POST">
+      <h2>Venue</h2>
+      <p>Venue Name: {{ venuedata['venuename'] }}</p>
+      <label for="venuename">Venue Name</label>
+      <input name="venuename" id="venuename" value="{{ venuedata['venuename'] }}" required>
+      <label for="venueaddress">Venue Address</label>
+      <input name="venueaddress" id="venueaddress" value="{{ venuedata['venueaddress'] }}" required>
+      <input type="submit" value="Change">
+  </form>
+{% endblock %}

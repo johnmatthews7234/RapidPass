@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Edit User{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="POST">
+      <h2>User</h2>
+      <p>Username: {{ userdata['username'] }}</p>
+      <label for="cpassword">Current Password</label>
+      <input type="password" name="cpassword" id="cpassword" required>
+      <label for=npassword>New Password</label>
+      <input type="password" name="npassword" id="npassword">
+      <label for="realname">Preferred Name</label>
+      <input name="realname" id="realname" value="{{ userdata['realname'] }}" required>
+      <input type="submit" value="Change">
+  </form>
+{% endblock %}
+      
